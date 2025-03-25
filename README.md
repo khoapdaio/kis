@@ -1,1 +1,1 @@
-# kis
+# Khoa's Information System (KIS)
