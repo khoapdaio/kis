@@ -1,0 +1,36 @@
+server:
+  port: 8050
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/product
+    username: khoapd
+    password: khoapd
+  jpa:
+    hibernate:
+      # create, update, create-drop, validate và none
+      ddl-auto: create
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+  flyway:
+    baseline-on-migrate: true
+    enabled: false
+    baseline-description: "init"
+    baseline-version: 0
+    user: ${spring.datasource.username}
+    password: ${spring.datasource.password}
+  grpc:
+    client:
+      channels:
+        local:
+          address: 0.0.0.0:9090
+application:
+  config:
+    category-url: http://localhost:8010/api/v1/categories
+
+springdoc:
+  api-docs:
+    enabled: true
+    path: /product/v3/api-docs
+  swagger-ui:
+    enabled: true
