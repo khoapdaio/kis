@@ -29,28 +29,38 @@
         <module>notification-service</module>
         <module>resource-service</module>
         <module>content-service</module>
-        <module>shared</module>
+        <module>proto</module>
     </modules>
 
 
     <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>17</java.version>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
+
         <spring-boot.version>3.4.4</spring-boot.version>
         <spring-cloud.version>2024.0.0</spring-cloud.version>
+        <springdoc-openapi-starter-webflux-ui.version>2.8.0</springdoc-openapi-starter-webflux-ui.version>
+        <springdoc-openapi-starter-webmvc-api.version>2.8.0</springdoc-openapi-starter-webmvc-api.version>
         <lombok.version>1.18.30</lombok.version>
         <mapstruct.version>1.5.5.Final</mapstruct.version>
         <lombok-mapstruct-binding.version>0.2.0</lombok-mapstruct-binding.version>
-        <springdoc-openapi-starter-webflux-ui.version>2.8.0</springdoc-openapi-starter-webflux-ui.version>
-        <springdoc-openapi-starter-webmvc-api.version>2.8.0</springdoc-openapi-starter-webmvc-api.version>
         <jjwt-api.version>0.11.5</jjwt-api.version>
         <jjwt-impl.version>0.11.5</jjwt-impl.version>
         <jjwt-jackson.version>0.11.5</jjwt-jackson.version>
         <totp.version>1.7.1</totp.version>
         <modelmapper.version>2.3.0</modelmapper.version>
         <shared.version>0.0.1-SNAPSHOT</shared.version>
-        <maven.compiler.source>${java.version}</maven.compiler.source>
-        <maven.compiler.target>${java.version}</maven.compiler.target>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <proto.version>0.0.1-SNAPSHOT</proto.version>
+        <zalando.version>0.27.0</zalando.version>
+        <protoc.version>3.25.1</protoc.version>
+        <protobuf.maven.plugin.version>0.6.1</protobuf.maven.plugin.version>
+        <grpc.java.version>1.58.0</grpc.java.version>
+        <grpc.spring.version>3.1.0.RELEASE</grpc.spring.version>
+        <grpc.netty.version>1.68.2</grpc.netty.version>
+        <protobuf.java.util.version>4.28.3</protobuf.java.util.version>
+        <spring-grpc.version>0.5.0</spring-grpc.version>
     </properties>
 
     <dependencyManagement>
@@ -112,6 +122,24 @@
                 <artifactId>modelmapper</artifactId>
                 <version>${modelmapper.version}</version>
             </dependency>
+            <dependency>
+                <groupId>org.springframework.grpc</groupId>
+                <artifactId>spring-grpc-dependencies</artifactId>
+                <version>${spring-grpc.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>net.devh</groupId>
+                <artifactId>grpc-server-spring-boot-starter</artifactId>
+                <version>${grpc.spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>vn.khoapd.kis</groupId>
+                <artifactId>proto</artifactId>
+                <version>${proto.version}</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
     <dependencies>
