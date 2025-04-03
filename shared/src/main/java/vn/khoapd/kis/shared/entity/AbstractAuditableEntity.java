@@ -25,33 +25,34 @@ import java.time.LocalDateTime;
 public class AbstractAuditableEntity implements Serializable {
 
     @ColumnDefault(value = "1")
-    @Column(name="status", nullable = false, length = 1)
-    @Min(0) @Max(4)
+    @Column(columnDefinition = "status", nullable = false, length = 1)
+    @Min(0)
+    @Max(4)
     private EEntityStatus status;
 
     @CreatedDate
-    @Column(name = "created_at", nullable = false, updatable = false)
+    @Column(columnDefinition = "created_at", nullable = false, updatable = false)
     private LocalDateTime createdAt;
 
     @LastModifiedDate
-    @Column(name = "updated_at")
+    @Column(columnDefinition = "updated_at")
     private LocalDateTime updatedAt;
 
     @CreatedBy
-    @Column(name = "created_by", updatable = false)
+    @Column(columnDefinition = "created_by", updatable = false)
     private String createdBy;
 
     @LastModifiedBy
-    @Column(name = "updated_by")
+    @Column(columnDefinition = "updated_by")
     private String updatedBy;
 
-    @Column(name = "deleted", nullable = false)
+    @Column(columnDefinition = "deleted", nullable = false)
     private Boolean isDeleted = false;
 
-    @Column(name = "deleted_at")
+    @Column(columnDefinition = "deleted_at")
     private LocalDateTime deletedAt;
 
-    @Column(name = "deleted_by")
+    @Column(columnDefinition = "deleted_by")
     private String deletedBy;
 
 } 
